@@ -1,0 +1,45 @@
+<h1>Vulnerability Report for <%= url %></h1>
+
+<h2>Header Vulnerabilities</h2>
+<ul>
+    <% report.headerVulns.forEach(function(vuln) { %>
+        <li><%= vuln %></li>
+    <% }); %>
+</ul>
+<h2>SSL Information</h2>
+<% if (report.sslInfo && typeof report.sslInfo === 'object' && report.sslInfo !== null) { %>
+    <p>Issuer: <%= report.sslInfo.Issuer %></p>
+    <p>Subject: <%= report.sslInfo.Subject %></p>
+    <p>Expiration Date: <%= report.sslInfo.Expiration %></p>
+<% } else { %>
+    <p>SSL Information not available</p>
+<% } %>
+
+
+<h2>XSS Vulnerabilities</h2>
+<ul>
+    <% report.xssVulns.forEach(function(vuln) { %>
+        <li><%= vuln %></li>
+    <% }); %>
+</ul>
+
+<h2>Directory Traversal Vulnerabilities</h2>
+<ul>
+    <% report.traversalVulns.forEach(function(vuln) { %>
+        <li><%= vuln %></li>
+    <% }); %>
+</ul>
+
+<h2>SQL Injection Vulnerabilities</h2>
+<ul>
+    <% report.sqlVulns.forEach(function(vuln) { %>
+        <li><%= vuln %></li>
+    <% }); %>
+</ul>
+
+<h2>Outdated Software</h2>
+<ul>
+    <% report.softwareVulns.forEach(function(vuln) { %>
+        <li><%= vuln %></li>
+    <% }); %>
+</ul>
